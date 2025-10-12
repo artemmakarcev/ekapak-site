@@ -1,4 +1,5 @@
 import axios from "axios";
+import type { ProductsDataApi } from "../adapters/types/Products.type";
 const API_URL = import.meta.env.VITE_API_URL;
 
 const instance = axios.create({
@@ -8,12 +9,12 @@ const instance = axios.create({
 
 export const productAPI = {
   async getAllProducts(page: number) {
-    const response = await instance.get(`products?page=${page}`);
-    return response.data;
+    const response = await instance.get<ProductsDataApi>(`products?page=${page}`);
+    return response;
   },
   async getAllProDuctsByCategory(uuid: string, page: number) {
     const response = await instance.get(`products?category=${uuid}&page=${page}`);
-    return response.data;
+    return response;
   },
   async getProductByUUID(uuid: string) {
     const response = await instance.get(`products/${uuid}`);
