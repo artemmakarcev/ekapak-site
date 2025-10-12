@@ -25,7 +25,3 @@ export interface IProduct {
   images: IImage[] | [];
   properties: Record<string, string>;
 }
-
-export interface ProductList {
-  data: IProduct[];
-}

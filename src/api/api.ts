@@ -8,12 +8,8 @@ const instance = axios.create({
 });
 
 export const productAPI = {
-  async getAllProducts(page: number) {
-    const response = await instance.get<ProductsDataApi>(`products?page=${page}`);
-    return response;
-  },
-  async getAllProDuctsByCategory(uuid: string, page: number) {
-    const response = await instance.get(`products?category=${uuid}&page=${page}`);
+  async getProducts(page: number, category: string | null) {
+    const response = await instance.get<ProductsDataApi>(`products?page=${page}&category=${category || ""}`);
     return response;
   },
   async getProductByUUID(uuid: string) {

@@ -1,14 +1,16 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import Pagination from "../Pagination/Pagination";
-import { useState } from "react";
-import { fetchAllProducts } from "../../adapters/services/ProductsService";
+import { fetchProducts } from "../../adapters/services/ProductsService";
 import ProductsList from "./ProductsList";
+import { useAppSelector } from "../../redux/hooks";
 
 function Products() {
-  const [page, setPage] = useState(0);
+  const currentPage = useAppSelector((state) => state.productSlice.currentPage);
+  const selectedCategory = useAppSelector((state) => state.productSlice.selectedCategory);
+
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["products", page],
-    queryFn: () => fetchAllProducts(page),
+    queryKey: ["products", currentPage, selectedCategory],
+    queryFn: () => fetchProducts(currentPage, selectedCategory),
     placeholderData: keepPreviousData,
     staleTime: 5000,
   });
