@@ -26,8 +26,7 @@ function Products() {
   }
 
   return (
-    <div>
-      <h3 className="h3-manrope-bold">Products component</h3>
+    <div className="flex flex-col gap-2">
       <ProductsList {...data} />
       <Pagination />
     </div>

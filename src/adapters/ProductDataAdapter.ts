@@ -36,7 +36,7 @@ export const adaptProduct = (data: ProductApi[]): IProduct[] => {
         offersMinPrice: parseFloat(item.offers_min_price) || 0,
         offers: item.offers ? adaptOffer(item.offers) : ([] as IOffer[]),
         minPurchasePieces: parseInt(item["Мин. покупка, шт."], 10) || 1,
-        availability: item["Наличие"],
+        isAvailable: item["Наличие"] ? item["Наличие"] === "Да в наличии" : false,
         article: item.article,
         images: item.images.length > 0 ? adaptImage(item.images) : ([] as IImage[]),
         properties: { ...item.properties },

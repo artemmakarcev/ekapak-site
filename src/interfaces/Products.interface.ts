@@ -20,7 +20,7 @@ export interface IProduct {
   offersMinPrice: number;
   offers: IOffer[];
   minPurchasePieces: number;
-  availability: string;
+  isAvailable: boolean;
   article: string;
   images: IImage[] | [];
   properties: Record<string, string>;

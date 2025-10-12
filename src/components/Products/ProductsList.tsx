@@ -1,13 +1,18 @@
-import type { ProductList } from "../../interfaces/Products.interface";
+import type { IProduct } from "../../interfaces/Products.interface";
+import ProductCard from "./ProductCard";
 
-function ProductsList({ data }: ProductList) {
+export interface ProductListProps {
+  data: IProduct[];
+}
+
+export const ProductsList: React.FC<ProductListProps> = ({ data }: ProductListProps) => {
   return (
-    <div>
+    <div className="grid justify-center gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {data.map((item) => (
-        <div key={item.id}>{item.name}</div>
+        <ProductCard key={item.id} product={item} />
       ))}
     </div>
   );
-}
+};
 
 export default ProductsList;

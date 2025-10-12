@@ -4,13 +4,17 @@ import Catalog from "./components/Catalog/Catalog";
 
 function App() {
   return (
-    <div>
-      <div>
-        <ShoppingCart />
-      </div>
-      <div>
-        <Catalog />
-        <Products />
+    <div className="flex w-full justify-center bg-gray-50">
+      <div className="flex flex-col gap-2">
+        <div className="rounded-md bg-white">
+          <ShoppingCart />
+        </div>
+        <div className="flex flex-row gap-2">
+          <div className="rounded-md bg-white hidden 2xl:flex xl:flex">
+            <Catalog />
+          </div>
+          <Products />
+        </div>
       </div>
     </div>
   );
