@@ -25,3 +25,11 @@ export interface IProduct {
   images: IImage[] | [];
   properties: Record<string, string>;
 }
+
+export interface IMeta {
+  totalProducts: number;
+  currentPage: number;
+  lastPage: number;
+  perPage: number;
+  cachedAt: string;
+}

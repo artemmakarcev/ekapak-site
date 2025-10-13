@@ -1,5 +1,5 @@
 import type { IProduct } from "../../interfaces/Products.interface";
-import ProductCard from "./ProductCard";
+import { ProductCard } from "./ProductCard";
 
 export interface ProductListProps {
   data: IProduct[];
@@ -14,5 +14,3 @@ export const ProductsList: React.FC<ProductListProps> = ({ data }: ProductListPr
     </div>
   );
 };
-
-export default ProductsList;

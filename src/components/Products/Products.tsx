@@ -1,7 +1,7 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import Pagination from "../Pagination/Pagination";
+import { Pagination } from "../Pagination/Pagination";
 import { fetchProducts } from "../../adapters/services/ProductsService";
-import ProductsList from "./ProductsList";
+import { ProductsList } from "./ProductsList";
 import { useAppSelector } from "../../redux/hooks";
 
 function Products() {
@@ -28,7 +28,7 @@ function Products() {
   return (
     <div className="flex flex-col gap-2">
       <ProductsList {...data} />
-      <Pagination />
+      <Pagination data={data.meta} currentPage={currentPage} />
     </div>
   );
 }

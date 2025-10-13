@@ -1,4 +1,4 @@
-import type { IProduct, IImage, IOffer } from "../interfaces/Products.interface";
+import type { IProduct, IImage, IOffer, IMeta } from "../interfaces/Products.interface";
 import type { ImageApi, MetaApi, OfferApi, ProductsDataApi, ProductApi } from "./types/Products.type";
 
 const adaptImage = (data: ImageApi[]): IImage[] => {
@@ -44,11 +44,21 @@ export const adaptProduct = (data: ProductApi[]): IProduct[] => {
   );
 };
 
-export type ProductsResponse = { data: IProduct[]; meta: MetaApi };
+export const adaptMeta = (data: MetaApi): IMeta => {
+  return {
+    totalProducts: data.total,
+    currentPage: data.current_page,
+    lastPage: data.last_page,
+    perPage: data.per_page,
+    cachedAt: data.cached_at,
+  } as IMeta;
+};
+
+export type ProductsResponse = { data: IProduct[]; meta: IMeta };
 
 export const adaptProductsData = (productResponse: ProductsDataApi): ProductsResponse => {
   return {
     data: adaptProduct(productResponse.data),
-    meta: productResponse.meta,
+    meta: adaptMeta(productResponse.meta),
   };
 };

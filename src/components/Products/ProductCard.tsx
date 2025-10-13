@@ -70,5 +70,3 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }: ProductCard
     </div>
   );
 };
-
-export default ProductCard;
