@@ -26,7 +26,7 @@ function Products() {
   }
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2.5">
       <ProductsList {...data} />
       <Pagination data={data.meta} currentPage={currentPage} />
     </div>

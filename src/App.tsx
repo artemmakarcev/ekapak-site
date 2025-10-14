@@ -1,6 +1,6 @@
 import Products from "./components/Products/Products";
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
-import Catalog from "./components/Catalog/Catalog";
+import { Category } from "./components/Category/Category";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         </div>
         <div className="flex flex-row gap-2">
           <div className="rounded-md bg-white hidden 2xl:flex xl:flex">
-            <Catalog />
+            <Category />
           </div>
           <Products />
         </div>
