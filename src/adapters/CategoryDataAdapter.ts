@@ -1,5 +1,5 @@
-import type { ICategory, ICategoryMeta, ICategoryProduct } from "../interfaces/Categories.interface";
-import type { CategoryApi, CategoryDataApi, CategoryProductApi, MetaCategoryApi } from "./types/Categores.type";
+import type { ICategory, ICategoryProduct } from "../interfaces/Categories.interface";
+import type { CategoryApi, CategoryProductApi } from "./types/Categores.type";
 
 export const adaptCategoryProduct = (data: CategoryProductApi[]): ICategoryProduct[] => {
   return data.map(

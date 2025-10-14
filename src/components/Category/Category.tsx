@@ -24,7 +24,7 @@ export const Category: React.FC = () => {
       <h2 className="text-black text-2xl font-bold font-['Manrope'] leading-loose">Каталог товаров</h2>
       <div className="w-72 absolute inline-flex flex-col justify-start items-start gap-2.5">
         {data.map((item) => (
-          <CategoryItem key={item.id} category={item} />
+          <CategoryItem key={item.id} category={item} level={0} />
         ))}
       </div>
     </div>
