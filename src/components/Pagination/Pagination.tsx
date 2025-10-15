@@ -41,17 +41,3 @@ export const Pagination: React.FC<PaginationProps> = ({ data, currentPage }) => 
     </div>
   );
 };
-/* 
-h-[30px] w-[30px] cursor-pointer rounded-md bg-gray-100 text-lg hover:bg-gray-200
-bg-sky-500 hover:bg-sky-600
-<div className="px-5 py-3.5 rounded-[10px] outline outline-1 outline-offset-[-1px] outline-Синий inline-flex flex-col justify-start items-start gap-2.5">
-  <div className="self-stretch inline-flex justify-start items-center gap-2.5">
-    <div className="justify-center text-Синий text-lg font-bold font-['Manrope'] leading-relaxed">Перезвоните мне</div>
-  </div>
-</div>
-*/
-{
-  /* <div className="px-5 py-3.5 bg-Синий rounded-[10px] inline-flex justify-center items-center gap-2.5">
-  <div className="justify-center text-Белый text-lg font-bold font-['Manrope'] leading-relaxed">Заказать образец</div>
-</div> */
-}
