@@ -4,13 +4,13 @@ import { Category } from "./components/Category/Category";
 
 function App() {
   return (
-    <div className="w-screen h-screen flex justify-center bg-gray-50">
-      <div className="flex flex-col gap-2">
+    <div className="w-full h-full flex justify-center bg-background text-black font-manrope">
+      <div className="flex flex-col gap-2.5">
         <div className="rounded-md bg-white">
           <ShoppingCart />
         </div>
-        <div className="h-full flex flex-row gap-2">
-          <div className="rounded-md bg-white hidden 2xl:flex xl:flex">
+        <div className="flex flex-row gap-2.5">
+          <div className="hidden 2xl:flex xl:flex">
             <Category />
           </div>
           <Products />

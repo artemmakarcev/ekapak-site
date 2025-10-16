@@ -1,55 +1,57 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
-body {
-  font-family: "Manrope", sans-serif;
+@theme {
+  --font-manrope: Manrope, "sans-serif";
+
+  --color-background: #f5f7fb;
+  --color-stroke: var(--color-neutral-300);
+  --color-gray: #9a9a9a;
+  --color-gray-border: #dfdfdf;
+  --color-black: #2c2c2c;
+  --color-blue: #00b0ff;
+  --color-blue-active: #43c5ff;
+  --color-green: #2ac84d;
+  --color-green-active: #32ee5b;
 }
 
-.h1-manrope-bold {
-  font-family: "Manrope", sans-serif;
-  font-weight: bold;
-  font-size: 40px;
-  line-height: 130%;
+@layer base {
+  h1 {
+    font-family: Manrope, sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 130%;
+  }
+  h2 {
+    font-family: Manrope, sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 130%;
+  }
+  h3 {
+    font-family: Manrope, sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 140%;
+  }
+  p {
+    font-family: Manrope, sans-serif;
+    font-size: 18px;
+    line-height: 140%;
+  }
 }
 
-.h2-manrope-bold {
-  font-family: "Manrope", sans-serif;
-  font-weight: bold;
-  font-size: 30px;
-  line-height: 130%;
-}
-
-.h3-manrope-bold {
-  font-family: "Manrope", sans-serif;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 140%;
-}
-
-.p-manrope-bold {
-  font-family: "Manrope", sans-serif;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 140%;
-}
-
-.p-manrope-reg {
-  font-family: "Manrope", sans-serif;
-  font-weight: regular;
-  font-size: 18px;
-  line-height: 140%;
-}
-
-.price-manrope {
-  font-family: "Manrope", sans-serif;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 140%;
-}
-
-.info-manrope {
-  font-family: "Manrope", sans-serif;
-  font-weight: regular;
-  font-size: 14px;
-  line-height: 140%;
+@layer utilities {
+  .price-manrope {
+    font-family: Manrope, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 140%;
+  }
+  .info-manrope {
+    font-family: Manrope, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+  }
 }

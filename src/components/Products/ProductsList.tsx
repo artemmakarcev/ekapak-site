@@ -7,7 +7,7 @@ export interface ProductListProps {
 
 export const ProductsList: React.FC<ProductListProps> = ({ data }: ProductListProps) => {
   return (
-    <div className="grid justify-center gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <div className="grid justify-center gap-2.5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {data.map((item) => (
         <ProductCard key={item.id} product={item} />
       ))}
