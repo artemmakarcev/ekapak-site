@@ -3,7 +3,7 @@ import type { ICategory } from "../../interfaces/Categories.interface";
 
 interface CategoryItemProps {
   category: ICategory;
-  level: number;
+  level?: number;
 }
 
 export const CategoryItem: React.FC<CategoryItemProps> = ({ category, level = 0 }) => {

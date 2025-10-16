@@ -15,6 +15,7 @@ export interface IProduct {
   id: string;
   name: string;
   description: string;
+  descriptionFull: string;
   slug: string;
   categoryId: string;
   offersMinPrice: number;

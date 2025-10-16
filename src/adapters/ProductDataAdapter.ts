@@ -30,7 +30,8 @@ export const adaptProduct = (data: ProductApi[]): IProduct[] => {
       ({
         id: item.uuid,
         name: item.name,
-        description: item.description.trim(),
+        description: item.Description.trim(),
+        descriptionFull: item.description.trim(),
         slug: item.slug,
         categoryId: item.category_uuid,
         offersMinPrice: parseFloat(item.offers_min_price) || 0,

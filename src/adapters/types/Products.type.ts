@@ -15,6 +15,7 @@ export type ProductApi = {
   uuid: string;
   name: string;
   description: string;
+  Description: string;
   slug: string;
   category_uuid: string;
   offers_min_price: string;
