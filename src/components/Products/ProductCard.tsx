@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import type { IProduct } from "../../interfaces/Products.interface";
-import placeholderProduct from "../../assets/placeholderProduct.png";
 import { Tooltip } from "../Common/Tooltip";
+import { NavLink } from "react-router-dom";
 
-import HeartIcon from "../../assets/heart.svg?react";
+import productBaseImg from "../../assets/img/productBaseImg.png";
+import HeartIcon from "../../assets/img/heart.svg?react";
 
 interface ProductCardProps {
   product: IProduct;
@@ -14,26 +15,32 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }: ProductCard
   const [countPieces, setCountPieces] = useState<number>(product.minPurchasePieces);
 
   const textAboutAvailable = `Только для Юрлиц и ИП. Изготовление товара под заказ занимает до 10 рабочих дней. В корзине вы можете выбрать опцию "Срочно": срок изменится до 3-х дней, а цена вырастет на 3%`;
-
   return (
-    <div className="flex flex-col w-64 rounded-md bg-white xl:p-4 md:p-2 hover:bg-background">
-      <div className="flex justify-center items-center relative">
+    <li className="relative flex flex-col rounded-[10px] bg-white p-[10px] lg:rounded-[20px] lg:p-5">
+      <button>
+        <HeartIcon className="absolute top-[20px] right-[20px] z-10 cursor-pointer fill-white text-blue transition-all hover:fill-blue" />
+      </button>
+      <NavLink
+        to={`/products/slug/${product.slug}`}
+        className="group/main mb-[10px] aspect-[1/1] overflow-hidden rounded-[6px] lg:mb-5"
+      >
         <img
-          src={product.images.length > 0 ? product.images[0].cardUrl : placeholderProduct}
+          src={product.images.length > 0 ? product.images[0].cardUrl : productBaseImg}
           alt={product.name}
-          className="w-full rounded-md object-cover"
+          className="h-full w-full object-cover transition-transform group-hover/main:scale-110"
         />
-        <HeartIcon className="absolute  top-2 right-2 text-blue hover:fill-blue" />
-      </div>
+      </NavLink>
+      <p className="mb-1 line-clamp-3 text-mini">Арт. {product.article}</p>
+      <NavLink
+        to={`/products/slug/${product.slug}`}
+        className="hover:text-primary mb-[15px] title-card transition-colors lg:mb-5"
+      >
+        {product.name}
+      </NavLink>
 
-      <div className="mt-[20px] flex flex-1 flex-col">
-        <div className="text-xs text-gray">Арт. {product.article}</div>
-        <p className="line-clamp-3 h-full font-normal">{product.name}</p>
-      </div>
-
-      <div className="mt-[20px] flex items-center gap-2">
+      <div className="mb-1 text-mini">
         <div className="flex flex-row">
-          <div className="flex flex-inline ">
+          <div className="flex-inline flex">
             <span className="price-manrope">{minPrice} ₽ / шт. </span> <Tooltip message="С НДС 20%">*</Tooltip>
           </div>
         </div>
@@ -44,16 +51,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }: ProductCard
               <p>В наличии</p>
             </div>
           ) : (
-            <div className="flex flex-inline">
+            <div className="flex-inline flex">
               <p>Под заказ</p> <Tooltip message={textAboutAvailable}>?</Tooltip>
             </div>
           )}
         </div>
       </div>
 
-      <div className="flex h-[60px] mt-[30px] w-full items-center justify-center rounded-md border-1 border-gray-border">
+      <div className="mt-[30px] flex h-[60px] w-full items-center justify-center rounded-md border-1 border-gray-border">
         <button
-          className="flex items-center justify-center h-[30px] w-[30px] cursor-pointer rounded-md bg-background text-lg hover:bg-gray"
+          className="flex h-[30px] w-[30px] cursor-pointer items-center justify-center rounded-md bg-background text-lg hover:bg-gray"
           onClick={() => setCountPieces(countPieces - 1)}
         >
           -
@@ -63,14 +70,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }: ProductCard
           <span className="px-3 text-xs text-gray">на {Math.floor(minPrice * countPieces * 100) / 100} ₽</span>
         </div>
         <button
-          className="flex items-center justify-center h-[30px] w-[30px] cursor-pointer rounded-md bg-background text-lg hover:bg-gray"
+          className="flex h-[30px] w-[30px] cursor-pointer items-center justify-center rounded-md bg-background text-lg hover:bg-gray"
           onClick={() => setCountPieces(countPieces + 1)}
         >
           +
         </button>
       </div>
 
-      <button className="mt-[10px] cursor-pointer rounded-md  py-2 text-bold text-white bg-blue hover:bg-blue-active">Добавить в корзину</button>
-    </div>
+      <button className="text-bold mt-[10px] cursor-pointer rounded-md bg-blue py-2 text-white hover:bg-blue-active">
+        Добавить в корзину
+      </button>
+    </li>
   );
 };

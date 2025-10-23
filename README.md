@@ -56,28 +56,37 @@ docker rmi bun-vite-nginx-ekapak
 
 ```css
 @theme {
-  --font-manrope: Manrope, "sans-serif";
+  --font-base: "Manrope", ui-sans-serif, system-ui;
 
   --color-background: #f5f7fb;
-  --color-stroke: var(--color-neutral-300);
-  --color-gray: #9a9a9a;
+  --color-stroke: #d4d4d4;
+  --color-gray: #757575;
   --color-gray-border: #dfdfdf;
-  --color-black: #2c2c2c;
+  --color-blue-border: #e5e7eb;
+  --color-dark: #070707;
   --color-blue: #00b0ff;
   --color-blue-active: #43c5ff;
+  --color-blue-light: #d7eefb;
   --color-green: #2ac84d;
   --color-green-active: #32ee5b;
+  --color-error: #c82a2d;
+
+  --header-bottom-height: 0px;
+  --base-gap: 100px;
 }
 ```
+## Инструменты
 
+Плагин для сортировки классов tailwind для prettier "prettier-plugin-tailwindcss"
 Для работы с Tailwind использовалось расширение Tailwind CSS IntelliSense
+Для работы в devTools расширение Gimli Tailwind
 
 ## Иконки svg как компоненты React
 
 Из шаблоны экспортированы иконки, кроме корзины. В качестве цвета установлено "currentColor", чтобы можно было задать цвет из tailwind
 
 ```tsx
-import ArrowRight from "../../assets/arrowRight.svg?react";
+import ArrowRight from "../../assets/img/arrowRight.svg?react";
 <ArrowRight className="h-5 w-5" />;
 ```
 

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchCategories } from "../../adapters/services/CategoriesService";
 import { CategoryItem } from "./CategoryItem";
 
-export const Category: React.FC = () => {
+const CategorySidebar: React.FC = () => {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["categories"],
     queryFn: fetchCategories,
@@ -20,13 +20,15 @@ export const Category: React.FC = () => {
   }
 
   return (
-    <div className="w-96 relative bg-white rounded-[20px] overflow-hidden p-[30px]">
-      <h2 className="text-black text-2xl font-bold font-['Manrope'] leading-loose">Каталог товаров</h2>
-      <div className="w-72 absolute inline-flex flex-col justify-start items-start gap-2.5">
+    <aside className="hd:col-span-1 hd:block sticky-offset z-20 row-span-full wrap hidden self-start px-0 pb-5 xl:col-span-1 xl:block">
+      <h3 className="mb-[10px] px-[30px] subtitle">Каталог товаров</h3>
+      <ul className="flex flex-col">
         {data.map((item) => (
           <CategoryItem key={item.id} category={item} level={0} />
         ))}
-      </div>
-    </div>
+      </ul>
+    </aside>
   );
 };
+
+export default CategorySidebar;

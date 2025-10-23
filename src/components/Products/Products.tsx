@@ -26,7 +26,7 @@ function Products() {
   }
 
   return (
-    <div className="flex flex-col gap-2.5">
+    <div className="hd:col-span-3 col-span-4 row-span-full">
       <ProductsList {...data} />
       <Pagination data={data.meta} currentPage={currentPage} />
     </div>
